@@ -3,18 +3,24 @@ const session = require("express-session");
 const { DateTime } = require("luxon");
 const router = express.Router();
 
-function handleStartSession(req, res, next) {
-  req.session.startTime = DateTime.now();
-  res.json(req.session);
-}
+router.get("/play/:difficulty", (req, res, next) => {
+  switch (req.params.difficulty) {
+    case "Easy":
+      req.session.startTime = DateTime.now();
+      res.json(req.session);
+      break;
 
-router.get("/", (req, res, next) => {
-  if (req.session.startTime) {
-    req.session.startTime = null;
+    case "Medium":
+      req.session.startTime = DateTime.now();
+      res.json(req.session);
+      break;
+    case "Hard":
+      req.session.startTime = DateTime.now();
+      res.json(req.session);
+
+    default:
+      res.json("YOu aint playin you nO0ob");
+      break;
   }
-  console.log("Request to HOME");
-  res.json(req.session);
 });
-
-router.get("/play/:difficulty", handleStartSession);
 module.exports = router;
