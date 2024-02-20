@@ -7,7 +7,6 @@ const checkRouter = require("./api");
 const app = express();
 const bodyParser = require("body-parser");
 
-app.use(cors());
 app.use(
   session({
     secret: "Sameera So Secret",
