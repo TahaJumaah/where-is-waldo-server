@@ -5,9 +5,9 @@ const Waldo = require("./waldoSolution");
 const session = require("express-session");
 
 function checkEasy(solX, solY, difficulty) {
-  console.log(difficulty);
-  console.log(typeof difficulty);
-  console.log(Waldo[difficulty].percentX);
+  // console.log(difficulty);
+  // console.log(typeof difficulty);
+  // console.log(Waldo[difficulty].percentX);
   if (
     (solX == Waldo[difficulty].percentX &&
       solY == Waldo[difficulty].percentY) ||
@@ -18,10 +18,11 @@ function checkEasy(solX, solY, difficulty) {
   } else return false;
 }
 
-router.get("/api/:difficulty/check", (req, res, next) => {
+router.post("/api/:difficulty/check", (req, res, next) => {
   const difficulty = req.params.difficulty;
   const solX = req.body.solX;
   const solY = req.body.solY;
+  console.log("got a check request");
 
   switch (req.params.difficulty) {
     case difficulty:
@@ -37,6 +38,7 @@ router.get("/api/:difficulty/check", (req, res, next) => {
       res.json("No difficulty, solX, or solY provided");
       break;
   }
+  console.log(req.body);
 });
 
 module.exports = router;

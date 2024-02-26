@@ -6,21 +6,39 @@ const router = express.Router();
 router.get("/play/:difficulty", (req, res, next) => {
   switch (req.params.difficulty) {
     case "Easy":
-      req.session.startTime = DateTime.now();
-      res.json(req.session);
+      if (!req.session.startTime) {
+        req.session.startTime = DateTime.now();
+      }
+      res.send(req.session);
+
       break;
 
     case "Medium":
-      req.session.startTime = DateTime.now();
+      if (!req.session.startTime) {
+        req.session.startTime = DateTime.now();
+        // console.log(req.sessionID);
+      }
       res.json(req.session);
       break;
     case "Hard":
-      req.session.startTime = DateTime.now();
+      if (!req.session.startTime) {
+        req.session.startTime = DateTime.now();
+      }
       res.json(req.session);
+      break;
 
     default:
       res.json("YOu aint playin you nO0ob");
       break;
   }
 });
+
+router.get("/startSession", (req, res) => {
+  res.json(req.session.destroy());
+});
+
+router.get("/getSession", (req, res) => {
+  res.json(req.session);
+});
+
 module.exports = router;

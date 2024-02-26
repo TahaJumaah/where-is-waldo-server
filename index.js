@@ -7,18 +7,19 @@ const checkRouter = require("./api");
 const app = express();
 const bodyParser = require("body-parser");
 
+app.use(cors({ credentials: true, origin: "http://127.0.0.1:5001" }));
+
 app.use(
   session({
-    secret: "Sameera So Secret",
-    resave: false,
+    secret: "your secret",
+    resave: true,
     saveUninitialized: true,
   })
 );
-
-app.use(cors());
 app.use(bodyParser.json());
-app.use(checkRouter);
 app.use(router);
+
+app.use(checkRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server Listening on Port: ${process.env.PORT}`);

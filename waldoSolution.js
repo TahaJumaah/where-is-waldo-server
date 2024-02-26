@@ -11,5 +11,11 @@ const Medium = {
   percentXMobile: 49,
   percentYMobile: 37,
 };
+const Hard = {
+  percentX: 87,
+  percentY: 78,
+  percentXMobile: 87,
+  percentYMobile: 78,
+};
 
-module.exports = { Easy, Medium };
+module.exports = { Easy, Medium, Hard };
