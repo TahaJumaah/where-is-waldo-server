@@ -1,21 +1,34 @@
 const Easy = {
-  percentX: 86,
-  percentY: 81,
-  percentXMobile: 70,
-  percentYMobile: 80,
+  desktop: {
+    percentX: [81, 86, 91],
+    percentY: [81, 86, 91],
+  },
+
+  mobile: {
+    percentX: [65, 70, 75],
+    percentY: [75, 80, 85],
+  },
 };
 
 const Medium = {
-  percentX: 28,
-  percentY: 37,
-  percentXMobile: 49,
-  percentYMobile: 37,
+  desktop: {
+    percentX: [23, 28, 33],
+    percentY: [32, 37, 42],
+  },
+  mobile: {
+    percentX: [44, 49, 54],
+    percentY: [32, 37, 42],
+  },
 };
 const Hard = {
-  percentX: 87,
-  percentY: 78,
-  percentXMobile: 87,
-  percentYMobile: 78,
+  desktop: {
+    percentX: [82, 87, 92],
+    percentY: [73, 78, 83],
+  },
+  mobile: {
+    percentX: [82, 87, 92],
+    percentY: [73, 78, 83],
+  },
 };
 
 module.exports = { Easy, Medium, Hard };
