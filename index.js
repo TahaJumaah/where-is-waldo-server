@@ -14,6 +14,9 @@ app.use(
     secret: "your secret",
     resave: true,
     saveUninitialized: true,
+    cookie: {
+      secure: "true",
+    },
   })
 );
 app.use(bodyParser.json());
