@@ -7,16 +7,16 @@ const checkRouter = require("./api");
 const app = express();
 const bodyParser = require("body-parser");
 
-app.use(cors({ credentials: true, origin: "http://127.0.0.1:5001" }));
+app.use(cors({ credentials: true, origin: true }));
 
 app.use(
   session({
     secret: "your secret",
     resave: true,
     saveUninitialized: true,
-    cookie: {
-      secure: "true",
-    },
+    // cookie: {
+    //   secure: "true",
+    // },
   })
 );
 app.use(bodyParser.json());

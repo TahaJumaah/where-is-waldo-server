@@ -33,12 +33,15 @@ router.get("/play/:difficulty", (req, res, next) => {
   }
 });
 
-router.get("/startSession", (req, res) => {
-  res.json(req.session.destroy());
-});
-
 router.get("/getSession", (req, res) => {
   res.json(req.session);
+});
+router.get("/getInfo", (req, res) => {
+  res.send(req.session);
+});
+
+router.get("/startSession", (req, res) => {
+  res.json(req.session.destroy());
 });
 
 module.exports = router;
